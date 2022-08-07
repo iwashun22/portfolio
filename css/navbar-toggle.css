@@ -1,0 +1,101 @@
+/*
+padding < height < width
+*/
+#root {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+}
+
+@media screen and (min-width: 740px) {
+  #navbar {
+    display: flex;
+  }
+  #navbar div {
+    flex: 1;
+    display: flex;
+    padding: 0 10px;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    overflow-y: hidden;
+  }
+  #navbar .gray {
+    background-color: #ccc;
+  }
+  #navbar .navbar-nav {
+    cursor: pointer;
+    position: relative;
+    border: 2px solid rgba(0, 0, 0, 0);
+    transition: 0.35s;
+  }
+  #navbar .navbar-nav h3 {
+    margin-top: 100%;
+    background-color: none;
+    transition: 0.3s;
+  }
+  #navbar .navbar-nav img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.35s;
+  }
+  #navbar .navbar-nav:hover {
+    border-bottom: 2px red solid;
+  }
+  #navbar .navbar-nav:hover h3 {
+    margin-top: 0;
+  }
+  #navbar .navbar-nav:hover img {
+    top: -100%;
+    opacity: 0;
+  }
+  #navbar .right {
+    justify-content: right;
+  }
+}
+.switch {
+  position: absolute;
+  width: 60px;
+  height: 30px;
+}
+.switch input {
+  display: none;
+}
+.switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #ccc;
+  transition: 0.3s;
+  border-radius: 15px;
+}
+.switch input:checked + .slider {
+  background-color: #2196F3;
+}
+.switch .slider:before {
+  position: absolute;
+  content: "";
+  width: 22px;
+  height: 22px;
+  background-color: white;
+  bottom: 4px;
+  left: 4px;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+.switch input:checked + .slider:before {
+  transform: translateX(30px);
+}
+
+/*# sourceMappingURL=navbar-toggle.css.map */

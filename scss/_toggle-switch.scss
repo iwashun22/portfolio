@@ -1,0 +1,14 @@
+// in pixel
+$toggle-switch-width: 60;
+$toggle-switch-height: 30;
+$toggle-switch-padding: 8;
+$toggle-switch-slider: calc($toggle-switch-height - $toggle-switch-padding);
+$toggle-switch-transition: .3s;
+
+@function moveSlider($width, $slider, $padding) {
+   @return $width - ($slider + $padding);
+}
+
+/*
+padding < height < width
+*/

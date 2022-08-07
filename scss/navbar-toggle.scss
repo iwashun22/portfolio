@@ -1,0 +1,106 @@
+@import './toggle-switch';
+@import './general-env';
+
+#root {
+   position: absolute;
+   width: 100vw;
+   height: 100vh;
+   overflow-y: scroll;
+}
+
+.icon {
+   width: $h1;
+   height: $h1;
+}
+
+@media screen and (min-width: 740px) {
+   #navbar {
+      display: flex;
+      div {
+         flex: 1;
+         display: flex;
+         padding: 0 10px;
+         justify-content: center;
+         align-items: center;
+         height: 50px;
+         overflow-y: hidden;
+      }
+      .gray { background-color: #ccc; }
+      .navbar-nav {
+         cursor: pointer;
+         position: relative;
+         border: 2px solid rgb(0,0,0,0);
+         h3 {
+            margin-top: 100%;
+            background-color: none;
+            transition: .3s;
+         }
+         img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: .35s;
+         }
+         transition: .35s;
+      }
+      .navbar-nav:hover {
+         border-bottom: 2px red solid;
+         h3 {
+            // display: block;
+            margin-top: 0;
+         }
+         img {
+            top: -100%;
+            opacity: 0;
+         }
+      }
+      .right {
+         justify-content: right;
+      }
+   }
+}
+
+.switch {
+   position: absolute;
+   width: $toggle-switch-width * 1px;
+   height: $toggle-switch-height * 1px;
+   // margin: 10px;
+
+   input {
+      display: none;
+   }
+
+   .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background-color: #ccc;
+      transition: $toggle-switch-transition;
+      border-radius: calc($toggle-switch-height / 2) * 1px;
+   }
+   input:checked + .slider {
+      background-color: #2196F3;
+   }
+
+   .slider:before {
+      position: absolute;
+      content: "";
+      // height: ($toggle-switch-height - $toggle-switch-padding) * 1px;
+      // width: ($toggle-switch-height - $toggle-switch-padding) * 1px;
+      width: $toggle-switch-slider * 1px;
+      height: $toggle-switch-slider * 1px;
+      background-color: white;
+      bottom: calc($toggle-switch-padding / 2) * 1px;
+      left: calc($toggle-switch-padding / 2) * 1px;
+      border-radius: 50%;
+      transition: .3s;
+   }
+
+   input:checked + .slider:before {
+      transform: translateX(moveSlider($toggle-switch-width, $toggle-switch-slider, $toggle-switch-padding) * 1px);
+   }
+}
