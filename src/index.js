@@ -1,6 +1,6 @@
-import '../css/general.css';
-import '../css/navbar-toggle.css';
-import '../css/section-page.css';
+import '../scss/general.scss';
+import '../scss/navbar-toggle.scss';
+import '../scss/section-page.scss';
 
 import $ from 'jquery';
 
