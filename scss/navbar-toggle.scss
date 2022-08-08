@@ -13,18 +13,10 @@
    height: $h1;
 }
 
-@media screen and (min-width: 740px) {
+@media screen and (min-width: 100px) {
    #navbar {
       display: flex;
-      div {
-         flex: 1;
-         display: flex;
-         padding: 0 10px;
-         justify-content: center;
-         align-items: center;
-         height: 50px;
-         overflow-y: hidden;
-      }
+      height: 70px;
       .checked { 
          background-color: #ccc; 
          h3 {
@@ -38,6 +30,12 @@
          }
       }
       .navbar-nav {
+         flex: 1;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 50px;
+         overflow-y: hidden;
          cursor: pointer;
          position: relative;
          border: 2px solid rgb(0,0,0,0);
@@ -71,14 +69,30 @@
             opacity: 0;
          }
       }
+
       .right {
+         flex: 2;
+         display: inline-flex;
+         flex-direction: row;
+         padding-right: 20px;
+         align-items: center;
          justify-content: right;
+         p {
+            margin: 0 10px;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-style: italic;
+         }
+         div {
+            width: $toggle-switch-width * 1px;
+            height: $toggle-switch-height * 1px;
+            position: relative;
+         }
+         //! .switch ↓
       }
    }
 }
 
 .switch {
-   position: absolute;
    width: $toggle-switch-width * 1px;
    height: $toggle-switch-height * 1px;
    // margin: 10px;

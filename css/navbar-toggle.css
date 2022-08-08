@@ -13,18 +13,10 @@ padding < height < width
   height: 32px;
 }
 
-@media screen and (min-width: 740px) {
+@media screen and (min-width: 100px) {
   #navbar {
     display: flex;
-  }
-  #navbar div {
-    flex: 1;
-    display: flex;
-    padding: 0 10px;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-    overflow-y: hidden;
+    height: 70px;
   }
   #navbar .checked {
     background-color: #ccc;
@@ -39,6 +31,12 @@ padding < height < width
     opacity: 0 !important;
   }
   #navbar .navbar-nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    overflow-y: hidden;
     cursor: pointer;
     position: relative;
     border: 2px solid rgba(0, 0, 0, 0);
@@ -73,11 +71,25 @@ padding < height < width
     opacity: 0;
   }
   #navbar .right {
+    flex: 2;
+    display: inline-flex;
+    flex-direction: row;
+    padding-right: 20px;
+    align-items: center;
     justify-content: right;
+  }
+  #navbar .right p {
+    margin: 0 10px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-style: italic;
+  }
+  #navbar .right div {
+    width: 60px;
+    height: 30px;
+    position: relative;
   }
 }
 .switch {
-  position: absolute;
   width: 60px;
   height: 30px;
 }

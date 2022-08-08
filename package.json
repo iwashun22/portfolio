@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
+    "dev": "webpack --mode development --watch",
     "sass-dev": "sass --watch scss:css",
     "build": "webpack --mode production"
   },
