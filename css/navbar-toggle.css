@@ -26,19 +26,23 @@ padding < height < width
     height: 50px;
     overflow-y: hidden;
   }
-  #navbar .gray {
+  #navbar .checked {
     background-color: #ccc;
+  }
+  #navbar .checked h3 {
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+  }
+  #navbar .checked img {
+    top: -100% !important;
+    opacity: 0 !important;
   }
   #navbar .navbar-nav {
     cursor: pointer;
     position: relative;
     border: 2px solid rgba(0, 0, 0, 0);
     transition: 0.35s;
-  }
-  #navbar .navbar-nav h3 {
-    margin-top: 100%;
-    background-color: none;
-    transition: 0.3s;
   }
   #navbar .navbar-nav img {
     position: absolute;
@@ -47,11 +51,22 @@ padding < height < width
     transform: translate(-50%, -50%);
     transition: 0.35s;
   }
+  #navbar .navbar-nav h3 {
+    position: absolute;
+    white-space: nowrap;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    background-color: none;
+    transition: 0.35s;
+  }
   #navbar .navbar-nav:hover {
     border-bottom: 2px red solid;
   }
   #navbar .navbar-nav:hover h3 {
-    margin-top: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   #navbar .navbar-nav:hover img {
     top: -100%;

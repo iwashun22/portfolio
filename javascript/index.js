@@ -1,3 +1,9 @@
+import '../css/general.css';
+import '../css/navbar-toggle.css';
+import '../css/section-page.css';
+
+import $ from 'jquery';
+
 //* Toggle switch - Darkmode || Lightmode
 const toggleMode = $('#toggle-mode input');
 toggleMode.on('click', function() {
