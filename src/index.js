@@ -4,6 +4,11 @@ import '../scss/section-page.scss';
 
 import $ from 'jquery';
 
+console.log(navigator.userAgent);
+
+const isPhoneOrTablet = navigator.userAgent.search(/iPhone|Android|iPad/);
+console.log(isPhoneOrTablet !== -1);
+
 //* Toggle switch - Darkmode || Lightmode
 const toggleMode = $('#toggle-mode input');
 toggleMode.on('click', function() {
