@@ -1,0 +1,16 @@
+/// light-mode
+#root {
+   
+}
+
+
+/// dark-mode
+#root.dark {
+   &,
+   *,
+   *::before,
+   *::after {
+      background-color: black;
+      color: white;
+   }
+}

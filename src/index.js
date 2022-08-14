@@ -2,6 +2,7 @@ import './scss/general.scss';
 import './scss/navbar-toggle.scss';
 import './scss/section-page.scss';
 import './scss/mobile-structure.scss';
+import './scss/dark-light-mode.scss';
 
 import $ from 'jquery';
 
@@ -29,5 +30,13 @@ navbars.on(responsive, function() {
 
 const navbar = $('#navbar');
 navbar.on(responsive, function() {
-   $(this).toggleClass('open')
+   $(this).addClass('open')
+})
+document.addEventListener(responsive, e => {
+   // console.log(e.clientX > $('#navbar').width());
+   const nb = $('#navbar');
+   const navbarPositionX = nb.width();
+   if(e.clientX > navbarPositionX) {
+      nb.removeClass('open');
+   }
 })
