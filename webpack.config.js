@@ -1,3 +1,4 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -12,10 +13,7 @@ module.exports = {
             test: /\.js$/,
             exclude: /node_modules/,
             use: {
-               loader: 'babel-loader',
-               options: {
-                  presets: ['@babel/preset-env']
-               }
+               loader: 'babel-loader'
             }
          },
          {
@@ -25,7 +23,23 @@ module.exports = {
                'css-loader',
                'sass-loader'
             ]
+         },
+         {
+            test: /\.(png|jp(e*)g|svg)/,
+            use: [
+               {
+                  loader: 'file-loader',
+                  options: {
+                     name: 'images/[hash]-[name].[ext]'
+                  }
+               }
+            ]
          }
       ]
-   }
+   },
+   plugins: [
+      new HtmlWebpackPlugin({
+         template: path.resolve(__dirname, 'src/index.html'),
+      })
+   ]
 }
