@@ -1,9 +1,8 @@
 import React from 'react';
 
-const Navigator = props => {
-   const { imageSrc, dataSectionName, name } = props;
+const Navigator = ({ imageSrc, dataSectionName, name }) => {
    return (
-      <div className="navbar-nav" data-section-name={dataSectionName||"no-name"}>
+      <div className="navbar-nav" data-point-to-section-name={dataSectionName||""}>
          <div className="wrapper">
             <span>
                {
@@ -14,7 +13,7 @@ const Navigator = props => {
                }
             </span>
             <span>
-               <h3>{name || "no text"}</h3>
+               <h3>{name || "no name"}</h3>
             </span>
          </div>
       </div>

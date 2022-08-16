@@ -1,5 +1,5 @@
 @import './toggle-switch';
-@import '../util/general-env';
+@import '../../util/general-env';
 
 #root {
    position: absolute;
@@ -26,7 +26,6 @@ $icon-size: 30px;
 
 @keyframes pop-up {
    0% {
-      background-color: white;
       box-shadow: none;
    }
    50% {
@@ -41,7 +40,6 @@ $icon-size: 30px;
    display: flex;
    height: 70px;
    .checked { 
-      background-color: white;
       box-shadow: 2px 2px 10px red;
       animation: pop-up .5s;
       .wrapper {
