@@ -1,7 +1,5 @@
 import React from 'react';
 
-import './section-page.scss';
-
 const Tools = () => {
    return (
       <>

@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Navigator = ({ imageSrc, dataSectionName, name }) => {
+const Navigator = ({ imageSrc, dataSectionId, name }) => {
    return (
-      <div className="navbar-nav" data-point-to-section-name={dataSectionName||""}>
+      <div className="navbar-nav" data-point-to-section-id={dataSectionId||""}>
          <div className="wrapper">
             <span>
                {

@@ -3,7 +3,6 @@ import Desktop from './Desktop';
 import Tablet from './Tablet';
 
 import './dark-light-mode.scss';
-import './mobile-structure.scss';
 import './util/general.scss';
 
 const App = () => {

@@ -1,6 +1,4 @@
-import React from 'react'
-
-import './section-page.scss';
+import React from 'react';
 
 const About = () => {
    return (

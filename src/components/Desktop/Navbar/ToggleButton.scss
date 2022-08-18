@@ -1,0 +1,55 @@
+@import '../../util/general-env';
+@import './toggle-button-sizing';
+
+.right {
+   p {
+      margin: 0 10px;
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-style: italic;
+   }
+   div {
+      width: $toggle-switch-width * 1px;
+      height: $toggle-switch-height * 1px;
+      position: relative;
+   }
+}
+
+.switch {
+   width: $toggle-switch-width * 1px;
+   height: $toggle-switch-height * 1px;
+   // margin: 10px;
+
+   input {
+      display: none;
+      &:checked + .slider {
+         background-color: #2196F3 !important;
+      }
+      &:checked + .slider:before {
+         transform: translateX(moveSlider($toggle-switch-width, $toggle-switch-slider, $toggle-switch-padding) * 1px);
+      }
+   }
+
+   .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background-color: #ccc !important;
+      transition: $toggle-switch-transition;
+      border-radius: calc($toggle-switch-height / 2) * 1px;
+   }
+
+   .slider::before {
+      position: absolute;
+      content: "";
+      width: $toggle-switch-slider * 1px;
+      height: $toggle-switch-slider * 1px;
+      background-color: white !important;
+      bottom: calc($toggle-switch-padding / 2) * 1px;
+      left: calc($toggle-switch-padding / 2) * 1px;
+      border-radius: 50%;
+      transition: .3s;
+   }
+}
