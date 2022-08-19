@@ -15,7 +15,7 @@ const ToggleButton = () => {
    }
    return (
       <div className="right">
-         <p>light mode</p>
+         <p>{checked ? 'darkmode' : 'lightmode'}</p>
          <div>
             <label className="switch" id="toggle-mode">
                <input 

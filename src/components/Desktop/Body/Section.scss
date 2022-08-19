@@ -1,9 +1,9 @@
 
 .page {
+   position: relative;
    padding: 20px 20px;
-   @media screen and (min-width: 740px) {
-      animation: fade-in .8s;
-   }
+   animation: fade-in .6s;
+   background-color: rgba(255, 255, 255, 0.7) !important;
 }
 
 .hide {
@@ -12,6 +12,5 @@
 
 @keyframes fade-in {
    0% { opacity: 0; }
-   50% { opacity: 0.5; }
-   100% { opacity: 1; }
+   100% { opacity: .7;}
 }

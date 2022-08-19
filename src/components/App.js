@@ -2,16 +2,15 @@ import React, { useEffect, useState } from 'react';
 import Desktop from './Desktop';
 import Tablet from './Tablet';
 
+import './App.scss';
 import './dark-light-mode.scss';
 import './util/general.scss';
 
 const App = () => {
    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-   useEffect(() => {
-      window.addEventListener('resize', e => {
-         setWindowWidth(window.innerWidth);
-      })
-   }, [windowWidth]);
+   window.addEventListener('resize', e => {
+      setWindowWidth(window.innerWidth);
+   })
    return (
       <React.StrictMode>
          {
