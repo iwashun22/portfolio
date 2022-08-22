@@ -1,27 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import Desktop from './Desktop';
-import Tablet from './Tablet';
+import React from 'react';
+import Background from './Background';
+import NavBar from './Navbar';
+import Body from './Body';
 
-import './App.scss';
-import './dark-light-mode.scss';
 import './util/general.scss';
+import './App.scss';
 
 const App = () => {
-   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-   window.addEventListener('resize', e => {
-      setWindowWidth(window.innerWidth);
-   })
    return (
-      <React.StrictMode>
-         {
-            windowWidth < 740 ?
-               <h1>{windowWidth}</h1>
-               /* TODO: mobile structure */
-            :
-               <Desktop />
-         }
-      </React.StrictMode>
+      <React.Fragment>
+         <Background />
+         <NavBar />
+         <Body />
+      </React.Fragment>
    )
 }
 
-export default App;
+export default App

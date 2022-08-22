@@ -1,10 +1,22 @@
-@import '../../util/general-env';
+@import '../util/general-env';
 
 $icon-size: 30px;
 
 $navbar-height: 60px;
 $navigator-height: 60px;
 $navigator-text-size: 30px;
+
+// theme
+
+// light mode
+   $l-navbar-bg-color: white;
+   $l-navbar-shadow: 2px 2px 10px black;
+   $l-text-color: black;
+
+// dark mode
+   $d-navbar-bg-color: black;
+   $d-navbar-shadow: 2px 2px 10px orange;
+   $d-text-color: white;
 
 .icon {
    width: $icon-size;
@@ -20,30 +32,41 @@ $navigator-text-size: 30px;
    }
 }
 
+.animated-text-gradient {
+   background-image: linear-gradient(90deg, #f570da, #2de0c8, #F57170);
+   -webkit-background-clip: text;
+   background-size: 500px 500px;
+   color: transparent !important;
+   animation: text-gradient 2s infinite alternate-reverse;
+}
+
 @keyframes pop-up {
    0% {
       box-shadow: none;
    }
    50% {
-      box-shadow: 5px 5px 10px red;
+      box-shadow: 6px 6px 10px red;
    }
    100% {
-      box-shadow: 2px 2px 10px red;
+      box-shadow: 4px 4px 10px red;
    }
 }
 
 #navbar {
+   flex: 0 1 auto;
    display: flex;
    height: $navbar-height;
    position: relative;
    margin-bottom: 20px;
+   background-color: $l-navbar-bg-color;
+   box-shadow: $l-navbar-shadow;
    .checked { 
       position: relative;
-      box-shadow: 2px 2px 10px red;
+      box-shadow: 4px 4px 10px red !important;
       z-index: 1;
       animation: pop-up .5s;
       .wrapper {
-         top: -50%;
+         top: -50% !important;
       }
    }
    .navbar-nav {
@@ -53,8 +76,7 @@ $navigator-text-size: 30px;
       cursor: pointer;
       position: relative;
       &:hover {
-         // border-bottom: 2px red solid;
-         box-shadow: 2px 2px 10px cyan;
+         box-shadow: 4px 4px 10px cyan;
          .wrapper {
             top: -50%;
          }
@@ -78,12 +100,6 @@ $navigator-text-size: 30px;
                top: 50%;
                left: 50%;
                transform: translate(-50%, -50%);
-               // color gradient
-               background-image: linear-gradient(90deg, #f570da, #2de0c8, #F57170);
-               -webkit-background-clip: text;
-               background-size: 500px 500px;
-               color: transparent;
-               animation: text-gradient 2s infinite alternate-reverse;
             }
             h1, h2, h3, h4, h5, h6 {
                font-size: $navigator-text-size;
@@ -100,5 +116,23 @@ $navigator-text-size: 30px;
       padding-right: 20px;
       align-items: center;
       justify-content: right;
+   }
+   p {
+      color: $l-text-color;
+   }
+}
+
+
+/// darkmode
+.dark {
+   #navbar {
+      background-color: $d-navbar-bg-color !important;
+      box-shadow: $d-navbar-shadow !important;
+   }
+   p {
+      color: $d-text-color !important;
+   }
+   img {
+      filter: invert(61%) sepia(65%) saturate(523%) hue-rotate(0deg) brightness(105%) contrast(102%) !important;
    }
 }

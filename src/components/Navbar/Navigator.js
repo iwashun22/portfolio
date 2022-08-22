@@ -13,7 +13,7 @@ const Navigator = ({ imageSrc, dataSectionId, name }) => {
                }
             </span>
             <span>
-               <h3>{name || "no name"}</h3>
+               <h3 className="animated-text-gradient">{name || "no name"}</h3>
             </span>
          </div>
       </div>

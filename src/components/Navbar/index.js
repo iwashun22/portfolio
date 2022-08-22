@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import $ from 'jquery';
-import responsiveEvent from '../../util/responsive-event';
-// import { randomBytes } from 'crypto';
+import responsiveEvent from '../util/responsive-event';
 
 import Navigator from './Navigator';
 import ToggleButton from './ToggleButton';
@@ -10,7 +9,6 @@ import Tools from './icons/network-wired-solid.svg';
 import Works from './icons/book-atlas-solid.svg';
 
 import './index.scss';
-// import '../util/general.scss';
 
 function navSection({ title, imageSrc }) {
    return {
@@ -26,8 +24,7 @@ function navSection({ title, imageSrc }) {
 export const navList = {
    about: navSection({ title: 'About Me', imageSrc: AboutMe }),
    tools: navSection({ title: 'Tools', imageSrc: Tools }),
-   works: navSection({ title: 'Works', imageSrc: Works }),
-
+   works: navSection({ title: 'Works', imageSrc: Works })
 }
 
 const index = () => {

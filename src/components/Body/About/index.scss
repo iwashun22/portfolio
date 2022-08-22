@@ -1,0 +1,26 @@
+
+.container-left {
+   flex: 4;
+   position: relative;
+   padding: 20px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+
+   // dev-mode
+   // background-color: rgba(0, 0, 255, 0.5);
+}
+
+.container-right {
+   flex: 3;
+
+   // dev-mode
+   background-color: rgba(255, 0, 0, 0.5);
+}
+
+.headers {
+   font-family: Rockwell;
+   text-transform: uppercase;
+   line-height: 70px;
+   height: 70px;
+}

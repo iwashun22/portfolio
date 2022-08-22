@@ -4,8 +4,8 @@ import $ from 'jquery';
 import './ToggleButton.scss';
 
 const ToggleButton = () => {
-   const [checked, setChecked] = useState(false);
-   function toggleChange() {
+   const [checked, setChecked] = useState();
+   let toggleChange =  () => {
       if(checked) {
          $('#root').removeClass('dark');
       } else {
@@ -13,6 +13,9 @@ const ToggleButton = () => {
       }
       setChecked(!checked);
    }
+   useEffect(() => {
+      setChecked($('#root').hasClass('dark'));
+   }, [])
    return (
       <div className="right">
          <p>{checked ? 'darkmode' : 'lightmode'}</p>
@@ -20,7 +23,8 @@ const ToggleButton = () => {
             <label className="switch" id="toggle-mode">
                <input 
                   type="checkbox"
-                  onChange={() => {
+                  defaultChecked={checked}
+                  onClick={() => {
                      toggleChange()
                   }}
                />

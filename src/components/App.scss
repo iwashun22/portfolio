@@ -3,3 +3,8 @@ body, #root {
    height: 100vh;
    overflow: hidden;
 }
+
+#root {
+   display: flex;
+   flex-flow: column;
+}

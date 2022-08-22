@@ -1,4 +1,4 @@
-@import '../../util/general-env';
+@import '../util/general-env';
 @import './toggle-button-sizing';
 
 .right {
@@ -50,6 +50,6 @@
       bottom: calc($toggle-switch-padding / 2) * 1px;
       left: calc($toggle-switch-padding / 2) * 1px;
       border-radius: 50%;
-      transition: .3s;
+      transition: $toggle-switch-transition;
    }
 }
