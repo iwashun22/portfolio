@@ -17,6 +17,10 @@
    transform: translate(-50%, -50%);
    background-color: $l-bg-color;
    animation: animate-color 2s linear infinite;
+   -webkit-animation: animate-color 2s linear infinite;
+   -moz-animation: animate-color 2s linear infinite;
+   -o-animation: animate-color 2s linear infinite;
+   -ms-animation: animate-color 2s linear infinite;
 }
 
 .dark {
@@ -30,6 +34,10 @@
    display: block;
    background:rgb(255, 196, 47);
    transform: translate(-50%, -50%);
+   -webkit-transform: translate(-50%, -50%);
+   -moz-transform: translate(-50%, -50%);
+   -o-transform: translate(-50%, -50%);
+   -ms-transform: translate(-50%, -50%);
    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
    pointer-events: none;
    // border-radius: 50%;

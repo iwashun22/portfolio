@@ -4,9 +4,22 @@ $box-width: 400px;
 // theme
 
 // light mode
-
+   $l-base-color: rgb(0, 208, 255);
+   $l-content-headers-color: black;
+   $l-scroll-radio-input-color: white;
+   $l-scroll-radio-input-hover-color: rgb(158, 158, 158);
 
 // dark mode
+   $d-base-color: rgb(0, 255, 208);
+   $d-content-headers-color: white;
+   $d-scroll-radio-input-color: gray;
+   $d-scroll-radio-input-hover-color: white;
+   $d-light-color: yellow;
+   $d-scroll-radio-input-light-effect: 
+      inset 0 0 2px $d-light-color,
+      inset 2px 0 2px $d-light-color,
+      inset -2px 0 2px $d-light-color,
+      0 0 20px $d-light-color;
 
 .headers {
    text-align: left;
@@ -64,7 +77,7 @@ $box-width: 400px;
             width: 100%;
             height: 3px;
             position: absolute;
-            background: linear-gradient(90deg, rgb(0, 208, 255) 25%, rgba(255, 255, 255, 0) 75%);
+            background: linear-gradient(90deg, $l-base-color 25%, rgba(255, 255, 255, 0) 75%);
             top: 100%;
          }
       }
@@ -90,8 +103,8 @@ $box-width: 400px;
             }
          }
          button:hover {
-            background-color: rgb(0, 208, 255);
-            border-color: rgb(0, 208, 255);
+            background-color: $l-base-color;
+            border-color: $l-base-color;
             height: 32px;
          }
       }
@@ -105,23 +118,48 @@ $box-width: 400px;
    justify-content: center;
    align-items: center;
    position: relative;
-   div {
+   label {
       flex: 0 1 40px;
+      display: block;
+      height: 100%;
+      cursor: pointer;
       position: relative;
       input {
          -webkit-appearance: none;
+         cursor: pointer;
          appearance: none;
          position: absolute;
-         height: 20px;
-         width: 20px;
+         height: 15px;
+         width: 15px;
          border-radius: 50%;
-         background-color: white;
+         background-color: $l-scroll-radio-input-color;
          top: 50%;
          left: 50%;
          transform: translate(-50%, -50%);
       }
       input:checked {
-         background-color: rgb(0, 208, 255);
+         background-color: $l-scroll-radio-input-hover-color;
+      }
+   }
+}
+
+.dark {
+   .content-headers {
+      color: $d-content-headers-color !important;
+      &::before {
+         background: linear-gradient(90deg, $d-base-color 25%, rgba(255, 255, 255, 0) 75%) !important;
+      }
+   }
+   .scroll-button-container input {
+      background-color: $d-scroll-radio-input-color;
+
+      &:checked {
+         background-color: $d-scroll-radio-input-hover-color;
+         box-shadow: $d-scroll-radio-input-light-effect !important;
+         -webkit-box-shadow: $d-scroll-radio-input-light-effect !important;
+         -moz-box-shadow: $d-scroll-radio-input-light-effect !important;
+         -o-box-shadow: $d-scroll-radio-input-light-effect !important;
+         -ms-box-shadow: $d-scroll-radio-input-light-effect !important;
       }
    }
 }

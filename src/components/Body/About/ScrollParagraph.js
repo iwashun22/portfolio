@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import responsiveEvent from '../../util/responsive-event';
 import $ from 'jquery';
 
 import NextButton from './icons/angles-right-solid.svg';
@@ -59,23 +60,28 @@ const Paragraph = ({ header, text, lastItem }) => {
 }
 
 const ScrollButton = ({ checked, index }) => {
+   const id = (Math.random() * 1000).toString(16).replace(".", "");
    return (
-      <div>
+      <label htmlFor={id}>
          <input 
+            id={id}
             type="radio" 
             name="content" 
             defaultChecked={checked || false} 
             value={index}
             className="scroll-button"
          />
-      </div>
+      </label>
    )
 }
 
 function addScrollEvent() {
+   const event = responsiveEvent();
    const scrollButton = $('.scroll-button');
    const boxWidth = $('.box').width();
-   scrollButton.on('click', function() {
+   // FIXME: doesn't work on Safari
+   scrollButton.change(function() {
+      console.log('clicked')
       const index = Number($(this).attr('value')); 
       const marginRight = getMargin('.content').right;
       const scrollTo = -(index * (boxWidth + marginRight));
@@ -96,11 +102,11 @@ const ScrollParagraph = () => {
             <div className="scroll-wrapper">
                <Paragraph 
                   header="履歴"
-                  text="中学はインターナショナルスクールで全教科英語で学びました。現在高校2年生です。"
+                  text="中学はインターナショナルスクールで全教科英語で学びました。現在高校2年生、コンピューター部所属です。ウェブアプリの開発を専門的に勉強しています。"
                />
                <Paragraph
                   header="スキル"
-                  text="プログラミングのフロント・エンドとバック・エンド両方できます。個人的にはフロント・エンドやデザインの方が好きです。"
+                  text="フロント・エンドとバック・エンド両方できます。個人的にはフロント・エンドやデザインの方が好きです。"
                />
                <Paragraph 
                   header="資格"
