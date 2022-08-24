@@ -43,9 +43,7 @@ const Paragraph = ({ header, text, lastItem }) => {
          </div>
          <div className="content-footer">
             {
-               lastItem ?  
-               null
-               : 
+               lastItem ||
                <button 
                   className="next-button"
                   onClick={() => {
@@ -91,11 +89,7 @@ const ScrollParagraph = () => {
    window.addEventListener('load', e => {
       addScrollEvent();
    })
-
-   // adding event when re-render from Tablet (responsive page component)
-   useEffect(() => {
-      addScrollEvent();
-   }, [])
+   
    return (
       <>
          <div className="box translucent">

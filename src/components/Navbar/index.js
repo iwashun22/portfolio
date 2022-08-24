@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import $ from 'jquery';
 import responsiveEvent from '../util/responsive-event';
 
@@ -40,7 +40,7 @@ const index = () => {
          //! this part is related to components/Desktop/Body/index.js
          $(`[data-section-id~="${sectionId}"]`).removeClass('hide');
       })
-   })
+   }, [])
    return (
       <div id="navbar">
          {

@@ -1,4 +1,7 @@
+export function isTablet() {
+   return navigator.userAgent.search(/iPad|iPhone|Android/) !== -1;
+}
+
 export default function responsiveEvent() {
-   const isPhoneOrTablet = navigator.userAgent.search(/iPhone|Android|iPad/) !== -1;
-   return isPhoneOrTablet ? 'touchstart' : 'click';
+   return isTablet() ? 'touchstart' : 'click';
 }
