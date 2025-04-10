@@ -1,3 +1,4 @@
+
 html,
 body {
   margin: 0;
@@ -12,23 +13,34 @@ body {
   font-family: 'Ubuntu Regular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
+.serif-font {
+  font-family: 'Merriweather', Georgia, 'Times New Roman', Times, serif;
+}
+
 @font-face {
   font-family: 'Ubuntu Regular';
-  src: url('/portfolio/fonts/Ubuntu/Ubuntu-Regular.woff2') format('woff2');
+  src: url('@fonts/Ubuntu/Ubuntu-Regular.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Ubuntu Bold';
-  src: url('/portfolio/fonts/Ubuntu/Ubuntu-Bold.woff2') format('woff2');
+  src: url('@fonts/Ubuntu/Ubuntu-Bold.woff2') format('woff2');
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Ubuntu Light';
-  src: url('/portfolio/fonts/Ubuntu/Ubuntu-Light.woff2') format('woff2');
+  src: url('@fonts/Ubuntu/Ubuntu-Light.woff2') format('woff2');
   font-weight: lighter;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url('@fonts/Merriweather.woff2') format('woff2');
+  font-weight: normal;
   font-style: normal;
 }
