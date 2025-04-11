@@ -21,6 +21,7 @@ export default defineConfig({
           if (url.searchParams.has("fallback")) {
             return new URLSearchParams({
               format: "avif;webp;jpeg",
+              as: "metadata"
             })
           }
           return new URLSearchParams();
@@ -47,17 +48,17 @@ export default defineConfig({
         output:  {
           hashCharacters: 'hex',
           assetFileNames: (assetInfo) => {
-            const prefix = "img_";
             const imageFiles = /^.*\.(jpg|jpeg|webp|avif|png|gif)$/
             const fontFiles = /^.*\.(woff|woff2|ttf)$/
 
-            console.log(assetInfo.names);
-            // if(assetInfo.names.match(imageFiles)) {
-            //   return `assets/images/${prefix}[hash][extname]`;
-            // } else if(assetInfo.names.match(fontFiles)) {
-            //   return `assets/fonts/[name]-[hash][extname]`;
-            // }
-            return `assets/[name]-[hash:26][extname]`;
+            // console.log(assetInfo.names); output: [ "example.png" ]
+            const fileName = assetInfo.names[0];
+            if (fileName.match(imageFiles))
+              return `assets/images/img_[hash:16][extname]`;
+            else if (fileName.match(fontFiles))
+              return `assets/fonts/[name]-[hash][extname]`;
+
+            return `assets/[name]-[hash][extname]`;
           }
         }
       }

@@ -1,0 +1,16 @@
+---
+import ImageWithFallback from './ImageWithFallback.astro';
+import BackgroundImage from '@images/home-bg-img.jpeg?fallback';
+---
+
+<section id="home-top">
+  <figure>
+    <picture>
+      <ImageWithFallback images={BackgroundImage} altText='Background Image'/>
+    </picture>
+  </figure>
+</section>
+
+<style lang="scss">
+
+</style>
