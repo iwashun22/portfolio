@@ -4,13 +4,51 @@ import BackgroundImage from '@images/home-bg-img.jpeg?fallback';
 ---
 
 <section id="home-top">
-  <figure>
-    <picture>
-      <ImageWithFallback images={BackgroundImage} altText='Background Image'/>
-    </picture>
-  </figure>
+  <div class="image-bg-container">
+    <ImageWithFallback
+      images={BackgroundImage}
+      altText='Background Image'
+      brightness={0.7}
+    />
+  </div>
+  <div class="profile">
+    
+  </div>
 </section>
 
 <style lang="scss">
+  $bg-color: #F0FFFF;
 
+  #home-top {
+    height: 100vh;
+    height: 100dvh;
+    width: 100vw;
+    background-color: $bg-color;
+    display: flex;
+    flex-direction: row;
+
+    .image-bg-container {
+      width: 60%;
+      height: 100%;
+      position: relative;
+      transform: translate3d(0,0,0);
+      clip-path: polygon(0% 0%, 100% 0, 85% 50%, 100% 100%, 0% 100%);
+    }
+
+    .profile {
+      flex: 1;
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    #home-top {
+      flex-direction: column-reverse;
+      background-color: #bfebff;
+      .image-bg-container {
+        width: 100%;
+        height: 70%;
+        clip-path: polygon(0% 0%, 50% 25%, 100% 0%, 100% 100%, 0% 100%);
+      }
+    }
+  }
 </style>

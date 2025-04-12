@@ -3,11 +3,15 @@ import { orderFormats } from '@utils/helpers';
 
 interface Props {
   images: ImageMetadata[],
+  brightness?: number,
+  offsetY?: number,
   altText?: string,
   order?: Array<ImageMetadata["format"]>
 }
 const {
   images,
+  offsetY = 0,
+  brightness = 1,
   altText = 'Image',
   order = ['avif', 'webp', 'jpeg']
 }: Props = Astro.props;
@@ -22,9 +26,32 @@ if (rearranged.length < 1) {
 }
 ---
 
-{
-  rearranged.map(image => (
-    <source srcset={image.src} type={`image/${image.format}`}/>
-  ))
-}
-<img src={images[images.length-1].src} alt={altText}/>
+<picture 
+  style={`
+    --offset-y: ${offsetY}px;
+    --brightness: ${brightness};
+  `}
+>
+  {
+    rearranged.map(image => (
+      <source srcset={image.src} type={`image/${image.format}`}/>
+    ))
+  }
+  <img src={images[images.length-1].src} alt={altText}/>
+</picture>
+
+<style lang="scss">
+  img {
+    position: absolute;
+    width: 100%;
+    height: calc(100% + var(--offset-y));
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: translateY(calc(var(--offset-y) * -1));
+    filter: brightness(var(--brightness));
+    object-fit: cover;
+    z-index: -1;
+  }
+</style>
