@@ -1,0 +1,36 @@
+---
+import ImageWithFallback from './ImageWithFallback.astro';
+import ExampleImage from '@images/computer-bg.jpg?fallback';
+---
+
+<div class="w-100">
+  <div class="d-flex justify-content-start align-items-center">
+    <div class="profile-image-wrapper">
+      <ImageWithFallback
+        images={ExampleImage}
+      />
+    </div>
+  </div>
+  <div>
+
+  </div>
+</div>
+
+<style lang="scss">
+  @use '@utils/mixins' as *;
+
+  .profile-image-wrapper {
+    --prof-img-size: 200px;
+    @include image-wrapper;
+    width: var(--prof-img-size);
+    height: var(--prof-img-size);
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  @media screen and (max-width: 750px) {
+    .profile-image-wrapper {
+      --prof-img-size: 170px;
+    }
+  }
+</style>

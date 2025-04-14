@@ -1,6 +1,7 @@
 ---
 import ImageWithFallback from './ImageWithFallback.astro';
 import BackgroundImage from '@images/home-bg-img.jpeg?fallback';
+import Profile from './Profile.astro';
 ---
 
 <section id="home-top">
@@ -11,12 +12,13 @@ import BackgroundImage from '@images/home-bg-img.jpeg?fallback';
       brightness={0.7}
     />
   </div>
-  <div class="profile">
-    
+  <div class="profile-container px-3">
+    <Profile/>
   </div>
 </section>
 
 <style lang="scss">
+  @use '@utils/mixins' as *;
   $bg-color: #F0FFFF;
 
   #home-top {
@@ -28,15 +30,16 @@ import BackgroundImage from '@images/home-bg-img.jpeg?fallback';
     flex-direction: row;
 
     .image-bg-container {
+      @include image-wrapper;
       width: 60%;
       height: 100%;
-      position: relative;
-      transform: translate3d(0,0,0);
       clip-path: polygon(0% 0%, 100% 0, 85% 50%, 100% 100%, 0% 100%);
     }
 
-    .profile {
+    .profile-container {
       flex: 1;
+      display: flex;
+      align-items: center;
     }
   }
 
