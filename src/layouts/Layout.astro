@@ -18,7 +18,7 @@ const { title = "Shun's Portfolio" }: Props = Astro.props;
 		<link rel="icon" type="image/png" href={root("page-icon.png")} />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-		<script type="module" src={root("import-bootstrap.js")}></script>
+		<script src={root("bootstrap.bundle.min.js")} defer></script>
 	</head>
 	<body>
 		<slot />
