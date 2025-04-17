@@ -1,18 +1,14 @@
 ---
-import ImageWithFallback from './ImageWithFallback.astro';
-import BackgroundImage from '@images/home-bg-img.jpeg?fallback';
+import BackgroundImage from '@images/home-bg-img.jpeg';
 import Profile from './Profile.astro';
+import Image from 'astro/components/Image.astro';
 ---
 
 <section id="home-top">
   <div class="image-bg-container">
-    <ImageWithFallback
-      images={BackgroundImage}
-      altText='Background Image'
-      brightness={0.7}
-    />
+    <Image src={BackgroundImage} alt="something" loading="eager"/>
   </div>
-  <div class="profile-container px-3">
+  <div class="profile-container">
     <Profile/>
   </div>
 </section>
@@ -30,16 +26,18 @@ import Profile from './Profile.astro';
     flex-direction: row;
 
     .image-bg-container {
-      @include image-wrapper;
-      width: 60%;
-      height: 100%;
-      clip-path: polygon(0% 0%, 100% 0, 85% 50%, 100% 100%, 0% 100%);
+      @include image-wrapper($brightness: 0.7) {
+        width: 60%;
+        height: 100%;
+        clip-path: polygon(0% 0%, 100% 0, 85% 50%, 100% 100%, 0% 100%);
+      }
     }
 
     .profile-container {
       flex: 1;
       display: flex;
       align-items: center;
+      padding-left: 60px;
     }
   }
 
@@ -51,6 +49,10 @@ import Profile from './Profile.astro';
         width: 100%;
         height: 70%;
         clip-path: polygon(0% 0%, 50% 25%, 100% 0%, 100% 100%, 0% 100%);
+      }
+
+      .profile-container {
+        padding-left: 0;
       }
     }
   }

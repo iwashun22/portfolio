@@ -12,7 +12,7 @@ const {
   images,
   offsetY = 0,
   brightness = 1,
-  altText = 'Image',
+  altText = '',
   order = ['avif', 'webp', 'jpeg']
 }: Props = Astro.props;
 
@@ -37,7 +37,7 @@ if (rearranged.length < 1) {
       <source srcset={image.src} type={`image/${image.format}`}/>
     ))
   }
-  <img src={images[images.length-1].src} alt={altText}/>
+  <img src={rearranged[rearranged.length-1].src} alt={altText}/>
 </picture>
 
 <style lang="scss">

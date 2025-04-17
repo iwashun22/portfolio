@@ -1,14 +1,12 @@
 ---
-import ImageWithFallback from './ImageWithFallback.astro';
-import ExampleImage from '@images/computer-bg.jpg?fallback';
+import ExampleImage from '@images/computer-bg.jpg';
+import Image from 'astro/components/Image.astro';
 ---
 
 <div class="w-100">
   <div class="d-flex justify-content-start align-items-center">
     <div class="profile-image-wrapper">
-      <ImageWithFallback
-        images={ExampleImage}
-      />
+      <Image src={ExampleImage} alt="My profile" loading="eager"/>
     </div>
   </div>
   <div>
@@ -21,11 +19,12 @@ import ExampleImage from '@images/computer-bg.jpg?fallback';
 
   .profile-image-wrapper {
     --prof-img-size: 200px;
-    @include image-wrapper;
-    width: var(--prof-img-size);
-    height: var(--prof-img-size);
-    border-radius: 50%;
-    overflow: hidden;
+    @include image-wrapper {
+      width: var(--prof-img-size);
+      height: var(--prof-img-size);
+      border-radius: 50%;
+      overflow: hidden;
+    }
   }
 
   @media screen and (max-width: 750px) {

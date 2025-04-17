@@ -36,7 +36,7 @@ jobs:
 
     - name: Set environment variables
       run: |
-        echo "BASE_URL=${{vars.PUBLIC_BASE_URL}}" >> $GITHUB_ENV
+        echo "BASE_URL=${{ vars.PUBLIC_BASE_URL || '/' }}" >> $GITHUB_ENV
 
     - name: Build static files
       run: yarn build

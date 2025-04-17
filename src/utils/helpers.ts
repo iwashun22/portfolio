@@ -25,7 +25,6 @@ export const orderFormats = (
 
   formatOrder.forEach(f => {
     // check if the listed format is generated.
-    console.log(generatedFormats[f]);
     if (f in generatedFormats) arr.push(generatedFormats[f]);
   })
   return arr;

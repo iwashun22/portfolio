@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import dotenv from 'dotenv';
 import { resolve } from 'node:path';
 import { imagetools } from 'vite-imagetools';
+import icon from 'astro-icon';
 
 dotenv.config();
 
@@ -64,5 +65,5 @@ export default defineConfig({
       }
     }
   },
-  integrations: [],
+  integrations: [icon()],
 });
